@@ -49,7 +49,7 @@ var intents = new builder.IntentDialog({ recognizers: [recognizer] })
     },
     function (session, results) {
         session.send("Ok let me search available options for %s people...", results.response);
-        url = 'http://api.yellowapi.com/FindBusiness/?what=barber&where=Canada&fmt=JSON&pgLen=1&apikey=yek5f7zjg79dwv6udsdpwtxa';
+        url = 'http://api.yellowapi.com/FindBusiness/?what=barber&where=Canada&fmt=JSON&pgLen=1&apikey=vvefzzpq9rnqs65jsytt7x2y';
         request(url, function(e,r,b){
             session.send(b);
         })
