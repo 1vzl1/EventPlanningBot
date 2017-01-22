@@ -61,7 +61,7 @@ var intents = new builder.IntentDialog({ recognizers: [recognizer] })
         var service = builder.EntityRecognizer.findEntity(args.entities, 'service');
         var location = builder.EntityRecognizer.findEntity(args.entities, 'location');
         if (!location) {
-            builder.Prompts.text(session, "What is the location of your event");
+            builder.Prompts.text(session, "Where is your event located?");
         } else {
             next({ response: service.entity });
         }
