@@ -51,7 +51,7 @@ var intents = new builder.IntentDialog({ recognizers: [recognizer] })
         session.send("Ok let me search available options for %s people...", results.response);
         url = 'http://api.yellowapi.com/FindBusiness/?what=barber&where=Canada&fmt=JSON&pgLen=1&apikey=yek5f7zjg79dwv6udsdpwtxa';
         request(url, function(e,r,b){
-            session.send('body');
+            session.send(b);
         })
     }
 ])
