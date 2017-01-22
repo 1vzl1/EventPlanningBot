@@ -26,6 +26,10 @@ var luisAPIHostName = process.env.LuisAPIHostName || 'api.projectoxford.ai';
 
 const LuisModelUrl = 'https://' + luisAPIHostName + '/luis/v1/application?id=' + luisAppId + '&subscription-key=' + luisAPIKey;
 
+//YP API
+var url = 'http://api.yellowapi.com/FindBusiness/?what=barber&where=Canada&fmt=JSON&pgLen=1&apikey=yek5f7zjg79dwv6udsdpwtxa';
+var request = require('request');
+
 // Main dialog with LUIS
 var recognizer = new builder.LuisRecognizer(LuisModelUrl);
 var intents = new builder.IntentDialog({ recognizers: [recognizer] })
@@ -45,6 +49,10 @@ var intents = new builder.IntentDialog({ recognizers: [recognizer] })
     },
     function (session, results) {
         session.send("Ok let me search available options for %s people...", results.response);
+        url = 'http://api.yellowapi.com/FindBusiness/?what=barber&where=Canada&fmt=JSON&pgLen=1&apikey=yek5f7zjg79dwv6udsdpwtxa';
+        request(url, function(e,r,b){
+            console.log("body");
+        })
     }
 ])
 
